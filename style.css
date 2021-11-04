@@ -11,11 +11,16 @@ body {
 h1 {
     color: #222;
     font-size: 48px;
-    margin-bottom: 78px;
+}
+
+h3 {
+    font-weight: normal;
 }
 
 header {
     height: 10vh;
+    width: 850px;
+    text-align: center;
 }
 
 main {
@@ -30,6 +35,10 @@ main {
 footer {
     color: #2229;
     height: 15vh;
+}
+
+footer span {
+    display: block;
 }
 
 .canvas-area {
