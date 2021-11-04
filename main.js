@@ -1,23 +1,25 @@
 import { chargeGraph, SCR1Graph, SCR2Graph, sinusoidalGraph } from './controler/dataGraphGenerator.js';
 import { confChargeGraph } from './controler/chartGraph.js';
 
-const chargeGraphChart = new Chart(
-    document.getElementById('chargeGraph'),
-    confChargeGraph(chargeGraph(110, 30, 30, 1))
-);
+function loadGraph(Vp,shootingAngleSCR1, shootingAngleSCR2, angleRange) {
+    const chargeGraphChart = new Chart(
+        document.getElementById('chargeGraph'),
+        confChargeGraph(chargeGraph(Vp,shootingAngleSCR1, shootingAngleSCR2, angleRange), "senoide da carga")
+    );
 
-const scr1GraphChart = new Chart(
-    document.getElementById('scr1Graph'),
-    confChargeGraph(SCR1Graph(110, 30, 30, 1))
-);
+    const scr1GraphChart = new Chart(
+        document.getElementById('scr1Graph'),
+        confChargeGraph(SCR1Graph(Vp,shootingAngleSCR1, shootingAngleSCR2, angleRange), "senoide da SCR1")
+    );
 
-const scr2GraphChart = new Chart(
-    document.getElementById('scr2Graph'),
-    confChargeGraph(SCR2Graph(110, 30, 30, 1))
-);
+    const scr2GraphChart = new Chart(
+        document.getElementById('scr2Graph'),
+        confChargeGraph(SCR2Graph(Vp,shootingAngleSCR1, shootingAngleSCR2, angleRange), "senoide da SCR2")
+    );
+}
 
-document.onkeydown = e => {
-    if (e.key == "Enter") {
-        print()
-    }
-};
+const Vp = 110
+const anguloDisparoSCR1 = 30
+const anguloDisparoSCR2 = 30
+
+loadGraph(Vp, anguloDisparoSCR1, anguloDisparoSCR2, 1)
